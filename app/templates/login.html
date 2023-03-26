@@ -1,0 +1,139 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-zrnmn8R8KkWl12rAZFt4yKjxplaDaT7/EUkKm7AovijfrQItFWR7O/JJn4DAa/gx" crossorigin="anonymous">
+        
+        <title>Login Page</title>
+        <style>
+          body{
+            background-image:url('/static/images/images3.jpeg') !important;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            background-position: center;
+            background-size: cover;
+            background-blend-mode:darken;
+            
+          }
+          .bg-glass {
+              background-color: hsla(0, 18%, 81%, 0.9) !important;
+              backdrop-filter: saturate(200%) blur(25px);
+              opacity: 0.7;
+            }
+          
+        </style>
+    </head>
+    <body>
+        <div id="container" class="container center">
+            <div class="row">
+              
+            <div class="col-lg-6 col-md-9 col-sm-12 card bg-glass mt-5 mb-5 m-auto">
+              <div class="card-body px-4 py-5 px-md-5">
+
+                <h3 class="center mb-5" style="color:#1a3867">Easy Parking Management System</h3>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item mr-3" role="presentation">
+                      <button class="nav-link active" id="pills-society-tab" data-bs-toggle="pill" data-bs-target="#pills-society" type="button" role="tab" aria-controls="pills-society" aria-selected="true">Society Login</button>
+                    </li>
+                    <li class="nav-item ml-3" role="presentation">
+                      <button class="nav-link ml-3" id="pills-user-tab" data-bs-toggle="pill" data-bs-target="#pills-user" type="button" role="tab" aria-controls="pills-user" aria-selected="false">User Login</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content mt-5" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-society" role="tabpanel" aria-labelledby="pills-society-tab">
+                        <form method="POST" action="">{% csrf_token %}
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="loginName">Society Name or username</label>
+                                <input type="text" id="loginName" name="loginName" placeholder="Enter your Society Name or username" class="form-control" />
+                              </div>
+                        
+                              <!-- Password input -->
+                              <div class="form-outline mb-4">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="Enter your password" class="form-control" />
+                              </div>
+                              <div class="row mb-4">
+                                <div class="col-md-6 d-flex justify-content-center">
+                                  <!-- Checkbox -->
+                                  <div class="form-check mb-3 mb-md-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                    <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                  </div>
+                                </div>
+                        
+                                <div class="col-md-6 d-flex justify-content-center">
+                                  <!-- Simple link -->
+                                  <a href="#!">Forgot password?</a>
+                                </div>
+                              </div>
+                              
+                        
+                              <!-- Submit button -->
+                              <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        
+                              <!-- Register buttons -->
+                              <div class="text-center mb-5">
+                                <p>If your Society is not Register? <a href="register">Register</a></p>
+                              </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
+                        <form method="POST" action="/userLogin">{% csrf_token %}
+                            <div class="form-outline mb-4">
+
+                                <label class="form-label" for="loginUsername">Username or Email</label>
+                                <input type="text" id="loginUsername" name="loginUsername" placeholder="Enter your Email or username" class="form-control" />
+                              </div>
+                        
+                              <!-- Password input -->
+                              <div class="form-outline mb-4">
+                                <label class="form-label" for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your Password" class="form-control" />
+                              </div>
+                              <div class="row mb-4">
+                                <div class="col-md-6 d-flex justify-content-center">
+                                  <!-- Checkbox -->
+                                  <div class="form-check mb-3 mb-md-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck1" checked />
+                                    <label class="form-check-label" for="loginCheck1"> Remember me </label>
+                                  </div>
+                                </div>
+                        
+                                <div class="col-md-6 d-flex justify-content-center">
+                                  <!-- Simple link -->
+                                  <a href="#!">Forgot password?</a>
+                                </div>
+                              </div>
+                        
+                              <!-- Submit button -->
+                              <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        
+                              <!-- Register buttons -->
+                        </form>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger">
+                        {{message}}
+                    </div>
+                   
+                    {% endfor %}
+                    
+                    {% endif %}
+              </div>
+              </div>
+            </div>
+        </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </body>
+</html>

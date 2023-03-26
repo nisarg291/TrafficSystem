@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/scheduler.py", line 1, in <module>
+    from app.views import UpdateAvailability
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/app/views.py", line 21, in <module>
+    from app.models import Society,House
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/app/models.py", line 10, in <module>
+    class Society(models.Model):
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/env/lib/python3.10/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/env/lib/python3.10/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/env/lib/python3.10/site-packages/django/apps/registry.py", line 137, in check_apps_ready
+    settings.INSTALLED_APPS
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/env/lib/python3.10/site-packages/django/conf/__init__.py", line 92, in __getattr__
+    self._setup(name)
+  File "/Users/macbookpro/Desktop/Python Project/TrafficSystem/env/lib/python3.10/site-packages/django/conf/__init__.py", line 72, in _setup
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
